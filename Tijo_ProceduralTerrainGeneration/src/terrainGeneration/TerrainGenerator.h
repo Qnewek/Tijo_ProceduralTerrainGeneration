@@ -20,7 +20,7 @@ public:
 	bool initializeMap();
 
 	bool setSize(int width, int height);
-	void setSeed(int seed);
+	bool setSeed(int seed);
 	bool setSeeLevel(float seeLevel);
 	bool setChunkResolution(int resolution);
 	void setContinentalnessNoiseConfig(noise::NoiseConfigParameters config);
@@ -28,7 +28,7 @@ public:
 	void setPVNoiseConfig(noise::NoiseConfigParameters config);
 	bool setSplines(std::vector<std::vector<double>> splines);
 
-	float getSeeLevel() const { return seeLevel;};
+	float getSeeLevel() const { return seeLevel; };
 	float* getHeightMap();
 	int getWidth() const { return width * chunkResolution; };
 	int getHeight() const { return height * chunkResolution; };

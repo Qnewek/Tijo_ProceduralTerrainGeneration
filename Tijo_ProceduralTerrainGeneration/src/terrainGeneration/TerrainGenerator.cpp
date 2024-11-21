@@ -33,6 +33,7 @@ bool TerrainGenerator::setSize(int width, int height)
 {
 	if (width <= 0 || height <= 0) {
 		std::cout << "[ERROR] width and height must be greater than 0" << std::endl;
+		return false;
 	}
 
 	this->width = width;
@@ -45,9 +46,12 @@ bool TerrainGenerator::setSize(int width, int height)
 	return true;
 }
 
-void TerrainGenerator::setSeed(int seed)
+bool TerrainGenerator::setSeed(int seed)
 {
+	if (seed < 0)
+		return false;
 	this->seed = seed;
+	return true;
 }
 
 bool TerrainGenerator::setSeeLevel(float seeLevel)
