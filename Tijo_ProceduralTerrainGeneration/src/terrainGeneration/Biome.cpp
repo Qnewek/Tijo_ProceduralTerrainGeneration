@@ -1,130 +1,88 @@
 #include "Biome.h"
 
-Biome::Biome() : m_id(-1), m_TemperatureLevel({ -1, -1 }), m_HumidityLevel({ -1, -1 }), m_ContinentalnessLevel({ -1, -1 }), m_MountainousnessLevel({ -1, -1 }), m_VariantLevel({ -1, -1 })
-{
-}
-
-Biome::Biome(int id) : m_id(id), m_TemperatureLevel({ -1, -1 }), m_HumidityLevel({ -1, -1 }), m_ContinentalnessLevel({ -1, -1 }), m_MountainousnessLevel({ -1, -1 }), m_VariantLevel({ -1, -1 })
-{
-	this->m_MapGenerationConfig.option = noise::Options::NOTHING;
-	this->m_TextureGenerationConfig.option = noise::Options::NOTHING;
-}
-
-Biome::~Biome()
-{
-	m_TextureLevels.clear();
-}
-
-bool Biome::isSpecified() const{
-	return m_TemperatureLevel.x != -1 && m_HumidityLevel.x != -1 && 
-		   m_ContinentalnessLevel.x != -1 && m_MountainousnessLevel.x != -1 && m_VariantLevel.x != -1;
-}
-
-vec2 Biome::getTemperatureLevel() const
-{
-	return m_TemperatureLevel;
-}
-
-vec2 Biome::getHumidityLevel() const
-{
-	return m_HumidityLevel;
-}
-
-vec2 Biome::getContinentalnessLevel() const
-{
-	return m_ContinentalnessLevel;
-}
-
-vec2 Biome::getMountainousnessLevel() const
-{
-	return m_MountainousnessLevel;
-}
-
-vec2 Biome::getVariantLevel() const
-{
-	return m_VariantLevel;
-}
-
-int Biome::getTextureLevel(float value) const
-{
-	for (const auto& range : m_TextureLevels) {
-		if (value >= range.min && value <= range.max) {
-			return range.rangedLevel;
-		}
+namespace biome{
+	Biome::Biome() : m_id(-1), m_Name(""), m_TemperatureLevel(), m_HumidityLevel(), m_ContinentalnessLevel(), m_MountainousnessLevel(), texOffset(0), vegetationLevel(0)
+	{
 	}
-	return -1;
-}
 
-void Biome::setTemperatureLevel(vec2 temperatureLevel)
-{
-	m_TemperatureLevel = temperatureLevel;
-}
-
-void Biome::setHumidityLevel(vec2 humidityLevel)
-{
-	m_HumidityLevel = humidityLevel;
-}
-
-void Biome::setContinentalnessLevel(vec2 continentalnessLevel)
-{
-	m_ContinentalnessLevel = continentalnessLevel;
-}
-
-void Biome::setMountainousnessLevel(vec2 mountainousnessLevel)
-{
-	m_MountainousnessLevel = mountainousnessLevel;
-}
-
-void Biome::setVariantLevel(vec2 variantLevel)
-{
-	m_VariantLevel = variantLevel;
-}
-
-void Biome::addTextureLevel(float min, float max, int textureLevel)
-{
-	m_TextureLevels.push_back({ min, max, textureLevel });
-}
-
-void Biome::setGenerationConfigManually(int seed, float scale, int octaves, float constrast, float redistribution, float lacunarity, float persistance, float revertGain, noise::Options option, bool island, float mixPower, noise::IslandType islandType)
-{
-	m_MapGenerationConfig.seed = seed;
-	m_MapGenerationConfig.scale = scale;
-	m_MapGenerationConfig.octaves = octaves;
-	m_MapGenerationConfig.constrast = constrast;
-	m_MapGenerationConfig.redistribution = redistribution;
-	m_MapGenerationConfig.lacunarity = lacunarity;
-	m_MapGenerationConfig.persistance = persistance;
-	m_MapGenerationConfig.revertGain = revertGain;
-	m_MapGenerationConfig.option = option;
-	m_MapGenerationConfig.island = island;
-	m_MapGenerationConfig.mixPower = mixPower;
-	m_MapGenerationConfig.islandType = islandType;
-}
-
-void Biome::setTextureGenerationConfigManually(int seed, float scale, int octaves, float constrast, float redistribution, float lacunarity, float persistance, float revertGain, noise::Options option, bool island, float mixPower, noise::IslandType islandType)
-{
-	m_TextureGenerationConfig.seed = seed;
-	m_TextureGenerationConfig.scale = scale;
-	m_TextureGenerationConfig.octaves = octaves;
-	m_TextureGenerationConfig.constrast = constrast;
-	m_TextureGenerationConfig.redistribution = redistribution;
-	m_TextureGenerationConfig.lacunarity = lacunarity;
-	m_TextureGenerationConfig.persistance = persistance;
-	m_TextureGenerationConfig.revertGain = revertGain;
-	m_TextureGenerationConfig.option = option;
-	m_TextureGenerationConfig.island = island;
-	m_TextureGenerationConfig.mixPower = mixPower;
-	m_TextureGenerationConfig.islandType = islandType;
-}
-
-bool Biome::prepareNoise(noise::SimplexNoiseClass& noise, int i) {
-	if (i >= 2)
-		return false;
-	if (i == 0) {
-		noise.setConfig(m_MapGenerationConfig);
+	Biome::Biome(int id, std::string name) : m_id(id), m_Name(name), m_TemperatureLevel(), m_HumidityLevel(), m_ContinentalnessLevel(), m_MountainousnessLevel(), texOffset(0), vegetationLevel(0)
+	{
 	}
-	else if (i == 1) {
-		noise.setConfig(m_TextureGenerationConfig);
+
+	Biome::Biome(int id, std::string name, vec2 temperatureLevel, vec2 humidityLevel, vec2 continentalnessLevel, vec2 mountainousnessLevel, int texOffset, int vegetationLevel) : m_id(id), m_Name(name),
+		m_TemperatureLevel(temperatureLevel), m_HumidityLevel(humidityLevel), m_ContinentalnessLevel(continentalnessLevel), m_MountainousnessLevel(mountainousnessLevel), texOffset(texOffset), vegetationLevel(vegetationLevel)
+	{
 	}
-	return true;
+
+	Biome::~Biome()
+	{
+	}
+
+	vec2 Biome::getTemperatureLevel() const
+	{
+		return m_TemperatureLevel;
+	}
+
+	vec2 Biome::getHumidityLevel() const
+	{
+		return m_HumidityLevel;
+	}
+
+	vec2 Biome::getContinentalnessLevel() const
+	{
+		return m_ContinentalnessLevel;
+	}
+
+	vec2 Biome::getMountainousnessLevel() const
+	{
+		return m_MountainousnessLevel;
+	}
+
+	int Biome::getId() const
+	{
+		return m_id;
+	}
+
+	std::string Biome::getName() const
+	{
+		return m_Name;
+	}
+
+	int Biome::getTexOffset() const
+	{
+		return texOffset;
+	}
+
+	void Biome::setTemperatureLevel(vec2 temperatureLevel)
+	{
+		m_TemperatureLevel = temperatureLevel;
+	}
+
+	void Biome::setHumidityLevel(vec2 humidityLevel)
+	{
+		m_HumidityLevel = humidityLevel;
+	}
+
+	void Biome::setContinentalnessLevel(vec2 continentalnessLevel)
+	{
+		m_ContinentalnessLevel = continentalnessLevel;
+	}
+
+	void Biome::setMountainousnessLevel(vec2 mountainousnessLevel)
+	{
+		m_MountainousnessLevel = mountainousnessLevel;
+	}
+
+	bool Biome::isSpecified() const {
+		return m_TemperatureLevel.x != -1 && m_HumidityLevel.x != -1 &&
+			m_ContinentalnessLevel.x != -1 && m_MountainousnessLevel.x != -1;
+	}
+
+	bool Biome::verifyBiome(const int& T, const int& H, const int& C, const int& M) const
+	{
+		return T >= m_TemperatureLevel.x && T < m_TemperatureLevel.y &&
+			H >= m_HumidityLevel.x && H < m_HumidityLevel.y &&
+			C >= m_ContinentalnessLevel.x && C < m_ContinentalnessLevel.y &&
+			M >= m_MountainousnessLevel.x && M < m_MountainousnessLevel.y;
+	}
 }

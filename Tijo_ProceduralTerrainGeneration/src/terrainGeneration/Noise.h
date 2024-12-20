@@ -57,11 +57,11 @@ namespace noise
 			float constrast = 1.0f, float redistribution = 1.0f, float lacunarity = 2.0f,
 			float persistance = 0.5f, float scaleDown = 1.0f, Options option = Options::REVERT_NEGATIVES, float revertGain = 0.5f, bool ridge = false,
 			float ridgeGain = 1.0f, float ridgeOffset = 1.0f, bool island = false, float mixPower = 0.5f,
-			IslandType islandType = IslandType::CONE, bool symmetrical = false) :
+			IslandType islandType = IslandType::CONE, bool symmetrical = false):
 			seed(seed), xoffset(xoffset), yoffset(yoffset), scale(scale), octaves(octaves), constrast(constrast),
 			redistribution(redistribution), lacunarity(lacunarity), persistance(persistance), option(option), revertGain(revertGain),
-			ridge(ridge), ridgeGain(ridgeGain), ridgeOffset(ridgeOffset), island(island), islandType(islandType), mixPower(mixPower),
-			symmetrical(symmetrical) {}
+			ridge(ridge), ridgeGain(ridgeGain), ridgeOffset(ridgeOffset), island(island), islandType(islandType), mixPower(mixPower), 
+			symmetrical(symmetrical){}
 
 		float getCheckSum() const {
 			return xoffset + yoffset + scale + octaves + constrast + redistribution + lacunarity +
@@ -80,11 +80,11 @@ namespace noise
 		float makeIsland(float e, int x, int y);
 		bool makeMapRidged();
 
-		bool initMap();
-		bool setSeed(int seed);
-		bool setScale(float scale);
-		bool setMapSize(unsigned int width, unsigned int height);
-		bool setChunkSize(unsigned int chunkWidth, unsigned int chunkHeight);
+		void initMap();
+		void setSeed(int seed);
+		void setScale(float scale);
+		void setMapSize(unsigned int width, unsigned int height);
+		void setChunkSize(unsigned int chunkWidth, unsigned int chunkHeight);
 		void setConfig(NoiseConfigParameters config);
 
 		float* getMap() const { return heightMap; }
@@ -101,6 +101,6 @@ namespace noise
 		unsigned int width, height;
 		unsigned int chunkWidth, chunkHeight;
 
-		static float ridge(float h, float offset, float gain);
+		float ridge(float h, float offset, float gain);
 	};
 }

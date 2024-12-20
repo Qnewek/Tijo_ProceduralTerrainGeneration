@@ -23,16 +23,14 @@ namespace noise
 	}
 
 	//Initializes the height map based on the width and height of the map
-	bool SimplexNoiseClass::initMap()
+	void SimplexNoiseClass::initMap()
 	{
 		if (width > 0 && height > 0) {
 			delete[] heightMap;
 			heightMap = new float[width * chunkWidth * height * chunkHeight];
-			return true;
 		}
 		else {
 			std::cout << "[ERROR] Map size must be greater than 0" << std::endl;
-			return false;
 		}
 	}
 
@@ -40,27 +38,23 @@ namespace noise
 	//Seeding in this case is performed by shuffling permutation table of the simplex noise
 	//
 	//@param seed - seed of the noise
-	bool SimplexNoiseClass::setSeed(int seed) {
+	void SimplexNoiseClass::setSeed(int seed) {
 		if (seed != this->config.seed) {
 			this->config.seed = seed;
 			SimplexNoise::reseed(seed);
-			return true;
 		}
-		return false;
 	}
 
 	//Sets the scale of the noise sampling, the higher the scale the more zoomed out the noise will be,
 	//
 	//@param scale - scale of the noise
-	bool SimplexNoiseClass::setScale(float scale)
+	void SimplexNoiseClass::setScale(float scale)
 	{
 		if (scale > 0.0f && scale != this->config.scale) {
 			this->config.scale = scale;
-			return true;
 		}
 		else {
 			std::cout << "[ERROR] Scale must be greater than 0" << std::endl;
-			return false;
 		}
 	}
 
@@ -69,16 +63,11 @@ namespace noise
 	//
 	//@param width - width of the map in chunks
 	//@param height - height of the map in chunks
-	bool SimplexNoiseClass::setMapSize(unsigned int width, unsigned int height)
+	void SimplexNoiseClass::setMapSize(unsigned int width, unsigned int height)
 	{
 		if (width > 0 && height > 0 && (width != this->width || height != this->height)) {
 			this->width = width;
 			this->height = height;
-			return true;
-		}
-		else {
-			std::cout << "[ERROR] Map size must be greater than 0" << std::endl;
-			return false;
 		}
 	}
 
@@ -87,16 +76,14 @@ namespace noise
 	//
 	//@param chunkWidth - width of the chunk
 	//@param chunkHeight - height of the chunk
-	bool SimplexNoiseClass::setChunkSize(unsigned int chunkWidth, unsigned int chunkHeight)
+	void SimplexNoiseClass::setChunkSize(unsigned int chunkWidth, unsigned int chunkHeight)
 	{
 		if (chunkWidth > 0 && chunkHeight > 0 && (chunkWidth != this->chunkWidth || chunkHeight != this->chunkHeight)){
 			this->chunkWidth = chunkWidth;
 			this->chunkHeight = chunkHeight;
-			return true;
 		}
 		else {
 			std::cout << "[ERROR] Chunk size must be greater than 0" << std::endl;
-			return false;
 		}
 	}
 

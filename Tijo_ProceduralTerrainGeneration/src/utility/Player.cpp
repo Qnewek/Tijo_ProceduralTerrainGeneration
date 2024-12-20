@@ -8,7 +8,7 @@ Player::Player(const unsigned int ScreenWidth, const unsigned int ScreenHeight, 
 	m_Camera(ScreenWidth, ScreenHeight)
 {
 	m_Camera.setCameraConfig(glm::vec3(m_SpawnPoint.x, m_SpawnPoint.y + this->m_PlayerHeight, m_SpawnPoint.z), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(0.0f, 1.0f, 0.0f), -90.0f, 0.0f, speed, 0.1f, 45.0f);
-	m_Camera.setViewDist(glm::vec2(0.00001f, 1000.0f));
+	m_Camera.setViewDist(glm::vec2(0.00001f, 100.0f));
 }
 
 Player::~Player()
