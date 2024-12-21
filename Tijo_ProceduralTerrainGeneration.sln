@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tijo_ProceduralTerrainGeneration", "Tijo_ProceduralTerrainGeneration\Tijo_ProceduralTerrainGeneration.vcxproj", "{C7C07446-E3BC-4DD4-AACE-632E6331C3C9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PorceduralTerrainGenTests", "PorceduralTerrainGenTests\PorceduralTerrainGenTests.vcxproj", "{09C986CD-DBC1-4125-A263-F7B10EBFC371}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{C7C07446-E3BC-4DD4-AACE-632E6331C3C9}.Release|x64.Build.0 = Release|x64
 		{C7C07446-E3BC-4DD4-AACE-632E6331C3C9}.Release|x86.ActiveCfg = Release|Win32
 		{C7C07446-E3BC-4DD4-AACE-632E6331C3C9}.Release|x86.Build.0 = Release|Win32
+		{09C986CD-DBC1-4125-A263-F7B10EBFC371}.Debug|x64.ActiveCfg = Debug|x64
+		{09C986CD-DBC1-4125-A263-F7B10EBFC371}.Debug|x64.Build.0 = Debug|x64
+		{09C986CD-DBC1-4125-A263-F7B10EBFC371}.Debug|x86.ActiveCfg = Debug|Win32
+		{09C986CD-DBC1-4125-A263-F7B10EBFC371}.Debug|x86.Build.0 = Debug|Win32
+		{09C986CD-DBC1-4125-A263-F7B10EBFC371}.Release|x64.ActiveCfg = Release|x64
+		{09C986CD-DBC1-4125-A263-F7B10EBFC371}.Release|x64.Build.0 = Release|x64
+		{09C986CD-DBC1-4125-A263-F7B10EBFC371}.Release|x86.ActiveCfg = Release|Win32
+		{09C986CD-DBC1-4125-A263-F7B10EBFC371}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

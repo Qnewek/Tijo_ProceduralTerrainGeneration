@@ -516,9 +516,6 @@
     <ClCompile Include="src\utility\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\utility\TerrainGenApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\utility\utilities.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -609,9 +606,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\utility\Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\utility\TerrainGenApp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\utility\utilities.h">

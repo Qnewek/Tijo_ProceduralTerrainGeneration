@@ -46,6 +46,9 @@ namespace erosion {
 
 	struct vec2 {
 		float x, y;
+
+		vec2() : x(0), y(0) {}
+		vec2(float x, float y) : x(x), y(y) {}
 	};
 
 	struct vec2i_f
@@ -95,8 +98,9 @@ namespace erosion {
 	class Droplet
 	{
 	public:
+		Droplet() = default;
 		Droplet(vec2 position, float velocity, float water, float capacity);
-		~Droplet();
+		~Droplet() = default;
 
 		//Getters
 		vec2 getPosition() { return position; }

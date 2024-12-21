@@ -1,11 +1,6 @@
 #pragma once
 
-#include <vector>
 #include <string>
-
-#include "glm/glm.hpp"
-
-#include "Noise.h"
 
 namespace biome {
 	struct vec2 {

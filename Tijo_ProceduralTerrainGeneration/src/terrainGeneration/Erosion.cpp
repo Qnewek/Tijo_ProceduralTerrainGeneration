@@ -44,6 +44,7 @@ namespace erosion {
 
 	Erosion::~Erosion()
 	{
+		delete[] map;
 	}
 
 	//--------------------------------------------------------------------------------------
@@ -374,9 +375,6 @@ namespace erosion {
 	{
 	}
 
-	Droplet::~Droplet()
-	{
-	}
 
 	//Adjust the direction of the droplet based on the gradient of the current cell
 	//@param gradient - gradient of the current cell
