@@ -13,7 +13,6 @@ TEST(biomeUnitTests, biomeVerifyTest) {
 
 	//Then
 	EXPECT_TRUE(result) << "FAILED! Given temperature, humidity, continentalness and mountainousness levels does not specify tested biome.";
-	std::cout << "PASSED! Given temperature, humidity, continentalness and mountainousness levels specify tested biome." << std::endl;
 }
 
 TEST(biomeGeneratorUnitTests, setBiomesTest) {
@@ -26,7 +25,6 @@ TEST(biomeGeneratorUnitTests, setBiomesTest) {
 
 	//Then
 	EXPECT_FALSE(result) << "FAILED! Biomes initialization array is empty and fnc should return false";
-	std::cout << "PASSED! Biomes initialization array is empty so result should be false." << std::endl;
 }
 TEST(biomeGeneratorUnitTests, setRangesTest) {
 	//Given
@@ -45,5 +43,4 @@ TEST(biomeGeneratorUnitTests, setRangesTest) {
 
 	//Then
 	EXPECT_EQ(expected, result) << "FAILED! Given value fit in range but should not.";
-	std::cout << "PASSED! Given value doesnt fit in range." << std::endl;
 }

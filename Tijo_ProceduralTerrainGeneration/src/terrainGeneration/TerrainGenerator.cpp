@@ -52,6 +52,21 @@ bool TerrainGenerator::initializeBiomeMap()
 	return true;
 }
 
+bool TerrainGenerator::deinitalizeBiomeMap()
+{
+	if (biomeMap)
+	{
+		delete[] biomeMap;
+		biomeMap = nullptr;
+	}
+	if (biomeMapPerChunk)
+	{
+		delete[] biomeMapPerChunk;
+		biomeMapPerChunk = nullptr;
+	}
+	return true;
+}
+
 bool TerrainGenerator::setSize(int width, int height)
 {
 	if (width <= 0 || height <= 0) {

@@ -48,7 +48,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);Erosion.obj;Biome.obj;BiomeGenerator.obj;glm.obj;Noise.obj;SimplexNoise.obj</AdditionalDependencies>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);Erosion.obj;Biome.obj;BiomeGenerator.obj;glm.obj;Noise.obj;SimplexNoise.obj;TerrainGenerator.obj</AdditionalDependencies>
       <AdditionalLibraryDirectories>../Tijo_ProceduralTerrainGeneration/Debug</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -83,7 +83,7 @@
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);Erosion.obj;Biome.obj;BiomeGenerator.obj;glm.obj;Noise.obj;SimplexNoise.obj</AdditionalDependencies>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);Erosion.obj;Biome.obj;BiomeGenerator.obj;glm.obj;Noise.obj;SimplexNoise.obj;TerrainGenerator.obj</AdditionalDependencies>
       <AdditionalLibraryDirectories>../Tijo_ProceduralTerrainGeneration/Debug</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -107,6 +107,7 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="erosionIntegrationTests.cpp" />
     <ClCompile Include="terrainGeneratorIntegrationTests.cpp" />
     <ClCompile Include="terrainGenerationUnitTests.cpp" />
     <ClCompile Include="erosionUnitTests.cpp" />

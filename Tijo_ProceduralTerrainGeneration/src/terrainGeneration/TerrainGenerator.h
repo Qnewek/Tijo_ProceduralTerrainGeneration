@@ -16,6 +16,7 @@ public:
 
 	bool initializeMap();
 	bool initializeBiomeMap();
+	bool deinitalizeBiomeMap();
 
 	bool setSize(int width, int height);
 	void setSeed(int seed);

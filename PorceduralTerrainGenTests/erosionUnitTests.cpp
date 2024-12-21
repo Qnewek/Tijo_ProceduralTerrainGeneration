@@ -16,7 +16,6 @@ TEST(erosionUnitTests, adjustingVelocityTest) {
 
 	//Then
 	EXPECT_EQ(result, expected) << "FAILED! Result should be: " << expected << ", but was: " << result;
-	std::cout << "PASSED! Result is: " << result << " and should be"<<expected << std::endl;
 }
 
 TEST(erosionUnitTests, dropSedimentTest)
@@ -31,7 +30,6 @@ TEST(erosionUnitTests, dropSedimentTest)
 
 	//Then
 	EXPECT_EQ(result, expectedDropAmount) << "FAILED! Result should be: " << expectedDropAmount << ", but was: " << result;
-	std::cout << "PASSED! Result is: " << result << " and should be" << expectedDropAmount << std::endl;
 }
 
 TEST(erosionUnitTests, evaporationTest)
@@ -47,7 +45,6 @@ TEST(erosionUnitTests, evaporationTest)
 
 	//Then
 	EXPECT_EQ(result, expected) << "FAILED! Result should be: " << expected << ", but was: " << result;
-	std::cout << "PASSED! Result is: " << result << " and should be" << expected << std::endl;
 }
 
 TEST(erosionUnitTests, mapNullPtrInitializationTest)
@@ -61,7 +58,6 @@ TEST(erosionUnitTests, mapNullPtrInitializationTest)
 	
 	//Then
 	EXPECT_EQ(result, expected) << "FAILED! Result should be: " << expected << ", but was: " << result;
-	std::cout << "PASSED! Result should be nullptr and is: "<< result << std::endl;
 }
 
 TEST(erosionUnitTests, mapInitializationTest)
@@ -76,7 +72,6 @@ TEST(erosionUnitTests, mapInitializationTest)
 
 	//Then
 	EXPECT_TRUE(result != nullptr) << "FAILED! Result should not be nullptr";
-	std::cout << "PASSED! Result should not be nullptr and is: " << result << std::endl;
 	delete[] map;
 }
 
@@ -99,8 +94,6 @@ TEST(erosionUnitTests, gradientTest) {
 	//Then
 	EXPECT_EQ(result.x, expected.x) << "FAILED! Result should be: " << expected.x << ", but was: " << result.x;
 	EXPECT_EQ(result.y, expected.y) << "FAILED! Result should be: " << expected.y << ", but was: " << result.y;
-	std::cout << "PASSED! Result is: " << result.x << " and should be" << expected.x << std::endl;
-	std::cout << "PASSED! Result is: " << result.y << " and should be" << expected.y << std::endl;
 }
 
 TEST(erosionUnitTests, isOnMapTest) {
@@ -113,5 +106,4 @@ TEST(erosionUnitTests, isOnMapTest) {
 
 	//Then
 	EXPECT_FALSE(result) << "FAILED! Result should be: false, but was: true";
-	std::cout << "PASSED! Result is: false and should be false" << std::endl;
 }
