@@ -14,7 +14,8 @@ Ten projekt koncentruje się na generowaniu realistycznych i zróżnicowanych te
 •	C++20: Projekt jest zaimplementowany w C++20, wykorzystując nowoczesne funkcje języka.\
 •	Google Test: Używany do pisania i uruchamiania testów integracyjnych w celu walidacji funkcji generowania terenu.\
 •	GLFW: Używany do tworzenia okien i obsługi wejścia użytkownika.\
-•	OpenGL: Używany do renderowania grafiki 3D, w tym generowanych terenów.
+•	OpenGL: Używany do renderowania grafiki 3D, w tym generowanych terenów.\
+•	Dear ImGui: Biblioteka do tworzenia interfejsu użytkownika.
 
 # Testy jednostkowe
 #### Folder: PorceduralTerrainGenTests
