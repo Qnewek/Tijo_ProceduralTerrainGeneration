@@ -1,6 +1,18 @@
-## Testowanie i jakość oprogramowania\
-## Dawid Kusion\
+## Testowanie i jakość oprogramowania
+## Dawid Kusion
 ## Testowanie funkcji proceduralnego generowani terenu
+
+## Opis projektu:
+Ten projekt koncentruje się na generowaniu realistycznych i zróżnicowanych terenów za pomocą technik generowania proceduralnego. Głównym komponentem jest klasa TerrainGenerator, która wykorzystuje różne funkcje szumu i konfiguracje do tworzenia map wysokości, map biomów i rozmieszczenia roślinności.
+### Kluczowe Funkcje
+•	Generowanie Mapy Wysokości: Używa funkcji szumu i funkcji sklejanych do uzyskania oczekiwanej rzeźby terenu.
+•	Generowanie Mapy Biomów: Przypisuje różne biomy (np. równiny, pustynie, góry) na podstawie cech terenu.
+•	Rozmieszczenie Roślinności: Umieszcza roślinność, zgodnie z cechami biomów i terenu.
+•	Konfiguracje Szumu: Możliwość dostosowania ustawień szumu dla kontynentalności, górzystości i innych cech terenu.
+•	Testy: Zapewniają poprawność generowania terenu.
+### Użyte Technologie
+•	C++20: Projekt jest zaimplementowany w C++20, wykorzystując nowoczesne funkcje języka.
+•	Google Test: Używany do pisania i uruchamiania testów integracyjnych w celu walidacji funkcji generowania terenu.
 
 # Testy jednostkowe
 #### Folder: PorceduralTerrainGenTests
