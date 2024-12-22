@@ -301,3 +301,35 @@ Ten projekt koncentruje się na generowaniu realistycznych i zróżnicowanych te
 | **Warunki początkowe** | Aplikacja jest otwarta w głównym oknie                                   |
 | **Kroki testowe** | 1. Wybierz test "Noise Mesh".<br>2. Zaznacz okienko symmetrical.<br>3. Zaznacz okienko test symmetrical.    |
 | **Oczekiwany rezultat** | Wyświetlony zostaje teren główny i jego kopie po każdej z 4 stron, pokazując symetryczność generacji.                                            |
+
+#
+| **ID**   | TC07                                                                         |
+|----------|------------------------------------------------------------------------------|
+| **Tytuł** | Utworzenie chaotycznego "terenu"                  |
+| **Warunki początkowe** | Aplikacja jest otwarta w głównym oknie                                   |
+| **Kroki testowe** | 1. Wybierz test "Noise Mesh".<br>2. Zmień kontrast na 2.0.<br>3. Zmien skale na 3.0.<br>4. Zmien persistance na 1.    |
+| **Oczekiwany rezultat** | Otrzymamy chaotyczną reprezetacje wartości o wysokim kontraście nie przypominającą w żadnym stopniu terenu naturalnego.                                            |
+
+#
+| **ID**   | TC08                                                                         |
+|----------|------------------------------------------------------------------------------|
+| **Tytuł** | Symulacja erozji                  |
+| **Warunki początkowe** | Aplikacja jest otwarta w głównym oknie                                   |
+| **Kroki testowe** | 1. Wybierz test "Noise Mesh".<br>2. Wciśnij przycisk erosion.<br>3. Zmien liczbę kropel na 20000.<br>4. Zmien erosion rate na 0.7. <br>5. Wciśnij Erode map.   |
+| **Oczekiwany rezultat** | Uzyskany zostanie teren wejściowy poddany symulacji erozji hydraulicznej tj. o wygładzonych zboczach górskich.                                            |
+
+#
+| **ID**   | TC09                                                                         |
+|----------|------------------------------------------------------------------------------|
+| **Tytuł** | Utworzenie terenu z podziałem na BIomy                 |
+| **Warunki początkowe** | Aplikacja jest otwarta w głównym oknie                                   |
+| **Kroki testowe** | 1. Wybierz test "Map generation".   |
+| **Oczekiwany rezultat** | Uzyskany zostanie teren z podziałem na biomy które symbolizują odmienne tekstury.                                            |
+
+#
+| **ID**   | TC10                                                                         |
+|----------|------------------------------------------------------------------------------|
+| **Tytuł** | Rozmieszczenie roślinności                 |
+| **Warunki początkowe** | Aplikacja jest otwarta w głównym oknie                                   |
+| **Kroki testowe** | 1. Wybierz test "Map generation". <br>2. Wciśnij Display terrain.  |
+| **Oczekiwany rezultat** | po wyłączeniu warstwy terenu widoczne jest rozmieszczenie drzew zgodnie z parametrami biomów i rozkładem Poissona.                                            |
