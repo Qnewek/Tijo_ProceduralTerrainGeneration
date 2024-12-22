@@ -3,6 +3,8 @@
 ## Testowanie funkcji proceduralnego generowani terenu
 
 # Testy jednostkowe
+#### Folder: PorceduralTerrainGenTests
+#### Pliki: erosionUnitTests.cpp, terrainGenerationUnitTests.cpp
 ## Test 1: biomeVerifyTest
 ### Given (Założenia)
 •	Obiekt biome::Biome jest tworzony z określonymi parametrami: ID, nazwą, zakresami temperatury, wilgotności, kontynentalności i górzystości.
@@ -111,6 +113,8 @@
 •	Test sprawdza, czy pozycja znajduje się poza mapą za pomocą EXPECT_FALSE.
 
 # Testy integracyjne
+#### Folder: PorceduralTerrainGenTests
+#### Pliki: erosionIntegrationTests.cpp, terrainGeneratorIntegrationTests.cpp
 ## Test 1: positionTest
 ### Given (Założenia)
 •	Obiekt erosion::Erosion jest tworzony z wymiarami 3x3.
