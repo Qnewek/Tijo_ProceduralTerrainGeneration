@@ -1,35 +1,35 @@
-Testowanie i jakość oprogramowania\
-Dawid Kusion\
-Testowanie funkcji proceduralnego generowani terenu
+##Testowanie i jakość oprogramowania\
+##Dawid Kusion\
+##Testowanie funkcji proceduralnego generowani terenu
 
 # Testy jednostkowe
 ## Test 1: biomeVerifyTest
-Given (Założenia)
+# Given (Założenia)
 •	Obiekt biome::Biome jest tworzony z określonymi parametrami: ID, nazwą, zakresami temperatury, wilgotności, kontynentalności i górzystości.
 •	Ustawiane są wartości temperatury T, wilgotności H, kontynentalności C i górzystości M.
-When (Działania)
+# When (Działania)
 •	Wywoływana jest metoda verifyBiome z podanymi wartościami T, H, C i M.
-Then (Sprawdzenie)
+# Then (Sprawdzenie)
 •	Test sprawdza, czy podane wartości mieszczą się w zakresie określonym dla biomu za pomocą EXPECT_TRUE.
 
-Test 2: setBiomesTest
-Given (Założenia)
+## Test 2: setBiomesTest
+# Given (Założenia)
 •	Tworzona jest pusta wektorowa lista biomów biomes.
 •	Tworzony jest obiekt BiomeGenerator.
-When (Działania)
+#When (Działania)
 •	Wywoływana jest metoda setBiomes z pustą listą biomów.
-Then (Sprawdzenie)
+# Then (Sprawdzenie)
 •	Test sprawdza, czy metoda zwraca false dla pustej listy biomów za pomocą EXPECT_FALSE.
 
-Test 3: setRangesTest
-Given (Założenia)
+# Test 3: setRangesTest
+##Given (Założenia)
 •	Tworzona jest zagnieżdżona lista zakresów ranges dla różnych parametrów świata.
 •	Tworzony jest obiekt BiomeGenerator.
 •	Ustawiane są zakresy za pomocą metody setRanges.
 •	Oczekiwana wartość poziomu dla wilgotności Humidity i wartości -1.5f wynosi -2.
-When (Działania)
+##When (Działania)
 •	Wywoływana jest metoda determineLevel z parametrem WorldParameter::Humidity i wartością -1.5f.
-Then (Sprawdzenie)
+##Then (Sprawdzenie)
 •	Test sprawdza, czy metoda zwraca oczekiwaną wartość poziomu za pomocą EXPECT_EQ.
 
 Test 4: adjustingVelocityTest
