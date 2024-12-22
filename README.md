@@ -110,135 +110,128 @@
 ### Then (Sprawdzenie)
 •	Test sprawdza, czy pozycja znajduje się poza mapą za pomocą EXPECT_FALSE.
 
-Testy integracyjne
-Test 1: positionTest
-Given (Założenia)
+# Testy integracyjne
+## Test 1: positionTest
+### Given (Założenia)
 •	Obiekt erosion::Erosion jest tworzony z wymiarami 3x3.
 •	Mapa wysokości jest inicjalizowana z określonymi wartościami i ustawiana w obiekcie erosion.
 •	Obiekt erosion::Droplet jest tworzony z początkową pozycją (0.9f, 0.9f) oraz innymi parametrami.
-When (Działania)
+### When (Działania)
 •	Gradient w pozycji kropli jest obliczany za pomocą erosion.getGradient.
 •	Kierunek kropli jest dostosowywany na podstawie gradientu.
 •	Sprawdzane jest, czy nowa pozycja kropli nadal znajduje się na mapie za pomocą erosion.isOnMap.
-Then (Sprawdzenie)
+### Then (Sprawdzenie)
 •	Test sprawdza, czy kropla nadal znajduje się na mapie za pomocą EXPECT_TRUE.
 
-Test 2: dropletDisplacement
-Given (Założenia)
+## Test 2: dropletDisplacement
+### Given (Założenia)
 •	Obiekt erosion::Erosion jest tworzony z wymiarami 4x4.
 •	Mapa wysokości jest inicjalizowana z określonymi wartościami i ustawiana w obiekcie erosion.
 •	Obiekt erosion::Droplet jest tworzony z początkową pozycją (1.6f, 1.2f) oraz innymi parametrami.
 •	Osad kropli jest dostosowywany o 0.5f.
 •	Oczekiwany osad do zebrania wynosi 0.05f.
 •	Oczekiwana nowa pozycja kropli to (1.15f, 0.3f).
-When (Działania)
+### When (Działania)
 •	Gradient w pozycji kropli jest obliczany za pomocą erosion.getGradient.
 •	Stara pozycja kropli jest zapisywana.
 •	Kierunek kropli jest dostosowywany na podstawie gradientu.
 •	Różnica wysokości między starą a nową pozycją jest obliczana.
 •	Osad do zebrania jest obliczany na podstawie różnicy wysokości.
-Then (Sprawdzenie)
+### Then (Sprawdzenie)
 •	Test sprawdza, czy zebrany osad jest zbliżony do oczekiwanej wartości za pomocą EXPECT_NEAR.
 •	Test również sprawdza, czy nowa pozycja kropli jest zbliżona do oczekiwanej pozycji za pomocą EXPECT_NEAR.
-Given (Założenia)
+
+## Test 3: initializeMapTest
+### Given (Założenia)
 •	Obiekt TerrainGenerator jest tworzony.
 •	Ustawiane są wymiary mapy na 10x10 oraz rozdzielczość chunków na 10.
-When (Działania)
+### ### When (Działania)
 •	Wywoływana jest metoda initializeMap.
-Then (Sprawdzenie)
+### ### Then (Sprawdzenie)
 •	Test sprawdza, czy mapa została poprawnie zainicjalizowana za pomocą EXPECT_TRUE.
 
-Test 1: initializeMapTest
-Given (Założenia)
-•	Obiekt TerrainGenerator jest tworzony.
-•	Ustawiane są wymiary mapy na 10x10 oraz rozdzielczość chunków na 10.
-When (Działania)
-•	Wywoływana jest metoda initializeMap.
-Then (Sprawdzenie)
-•	Test sprawdza, czy mapa została poprawnie zainicjalizowana za pomocą EXPECT_TRUE.
-
-Test 4: heightMapGenerationTest
-Given (Założenia)
+## Test 4: heightMapGenerationTest
+### Given (Założenia)
 •	Obiekt TerrainGenerator jest tworzony i konfigurowany z wymiarami 10x10, rozdzielczością chunków 5 oraz seedem 742.
 •	Konfigurowane są parametry szumów dla różnych typów terenu.
 •	Ustawiane są splajny dla różnych typów terenu.
 •	Oczekiwana wartość wysokości w punkcie (0, 0) wynosi 457877 (po zaokrągleniu i przeliczeniu na int).
-When (Działania)
+### When (Działania)
 •	Wywoływana jest metoda generateHeightMap.
 •	Pobierana jest wysokość w punkcie (0, 0) i przeliczana na int.
-Then (Sprawdzenie)
+### Then (Sprawdzenie)
 •	Test sprawdza, czy mapa wysokości została poprawnie wygenerowana za pomocą EXPECT_TRUE.
 •	Test sprawdza, czy wysokość w punkcie (0, 0) jest zgodna z oczekiwaną wartością za pomocą EXPECT_EQ.
 
-Test 5: biomeMapGenerationTest
-Given (Założenia)
+## Test 5: biomeMapGenerationTest
+### Given (Założenia)
 •	Obiekt TerrainGenerator jest tworzony i konfigurowany z wymiarami 10x10, rozdzielczością chunków 5 oraz seedem 742.
 •	Konfigurowane są parametry szumów dla różnych typów terenu.
 •	Ustawiane są splajny dla różnych typów terenu.
 •	Ustawiane są biomy oraz ich zakresy.
 •	Oczekiwany biom w punkcie (3, 3) wynosi 5.
-When (Działania)
+### When (Działania)
 •	Wywoływana jest metoda generateBiomes.
 •	Pobierany jest biom w punkcie (3, 3).
-Then (Sprawdzenie)
+### Then (Sprawdzenie)
 •	Test sprawdza, czy mapa biomów została poprawnie wygenerowana za pomocą EXPECT_TRUE.
 •	Test sprawdza, czy biom w punkcie (3, 3) jest zgodny z oczekiwaną wartością za pomocą EXPECT_EQ.
 
-Test 6: vegetationGeneratorTest
-Given (Założenia)
+## Test 6: vegetationGeneratorTest
+### Given (Założenia)
 •	Obiekt TerrainGenerator jest tworzony i konfigurowany z wymiarami 10x10, rozdzielczością chunków 5 oraz seedem 742.
 •	Konfigurowane są parametry szumów dla różnych typów terenu.
 •	Ustawiane są splajny dla różnych typów terenu.
 •	Ustawiane są biomy oraz ich zakresy.
 •	Oczekiwane współrzędne roślinności w punkcie (2, 4) wynoszą (11, 3).
 •	Oczekiwana liczba drzew wynosi 137.
-When (Działania)
+### When (Działania)
 •	Wywoływana jest metoda performTerrainGeneration.
 •	Pobierane są punkty roślinności oraz liczba drzew.
-Then (Sprawdzenie)
+### Then (Sprawdzenie)
 •	Test sprawdza, czy generowanie roślinności zostało poprawnie wykonane za pomocą EXPECT_TRUE.
 •	Test sprawdza, czy współrzędne roślinności w punkcie (2, 4) są zgodne z oczekiwanymi wartościami za pomocą EXPECT_EQ.
 •	Test sprawdza, czy liczba drzew jest zgodna z oczekiwaną wartością za pomocą EXPECT_EQ.
 
-Test 7: nosieGenerationTest
-Given (Założenia)
+## Test 7: nosieGenerationTest
+### Given (Założenia)
 •	Obiekt noise::SimplexNoiseClass jest tworzony i konfigurowany z seedem 742 oraz rozmiarem mapy 10x10.
 •	Oczekiwana wartość szumu w punkcie (7, 7) wynosi 0.16376.
-When (Działania)
+### When (Działania)
 •	Wywoływana jest metoda generateFractalNoiseByChunks.
 •	Pobierana jest wartość szumu w punkcie (7, 7).
-Then (Sprawdzenie)
+### Then (Sprawdzenie)
 •	Test sprawdza, czy generowanie szumu zostało poprawnie wykonane za pomocą EXPECT_NEAR.
 
-Test 8: nonValidMapGenTest
-Given (Założenia)
+## Test 8: nonValidMapGenTest
+### Given (Założenia)
 •	Obiekt TerrainGenerator jest tworzony.
 •	Ustawiane są wymiary mapy na 10x10 oraz rozdzielczość chunków na 10.
-When (Działania)
+### When (Działania)
 •	Wywoływana jest metoda generateHeightMap.
-Then (Sprawdzenie)
+### Then (Sprawdzenie)
 •	Test sprawdza, czy generowanie mapy wysokości nie powiodło się za pomocą EXPECT_FALSE.
 
-Test 9: nonValidBiomeGenTest
-Given (Założenia)
+## Test 9: nonValidBiomeGenTest
+### Given (Założenia)
 •	Obiekt TerrainGenerator jest tworzony.
 •	Ustawiane są wymiary mapy na 10x0 oraz rozdzielczość chunków na 10.
-When (Działania)
+### When (Działania)
 •	Wywoływana jest metoda generateBiomes.
-Then (Sprawdzenie)
+### Then (Sprawdzenie)
 •	Test sprawdza, czy generowanie biomów nie powiodło się za pomocą EXPECT_FALSE.
 
-Test 10: nonValidAverageBiomeCalculationTest
-Given (Założenia)
+## Test 10: nonValidAverageBiomeCalculationTest
+### Given (Założenia)
 •	Obiekt TerrainGenerator jest tworzony i konfigurowany z wymiarami 10x10, rozdzielczością chunków 5 oraz seedem 742.
 •	Konfigurowane są parametry szumów dla różnych typów terenu.
 •	Ustawiane są splajny dla różnych typów terenu.
 •	Ustawiane są biomy oraz ich zakresy.
-When (Działania)
+### When (Działania)
 •	Wywoływana jest metoda initializeMap.
 •	Ustawiane są biomy oraz ich zakresy.
 •	Wywoływana jest metoda generateBiomes.
 •	Wywoływana jest metoda deinitalizeBiomeMap.
 •	Wywoływana jest metoda generateBiomeMapPerChunk.
-Then (Sprawdzenie)
+### Then (Sprawdzenie)
 •	Test sprawdza, czy generowanie mapy biomów na chunkach nie powiodło się za pomocą EXPECT_FALSE.
