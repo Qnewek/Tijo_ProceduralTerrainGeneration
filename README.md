@@ -251,3 +251,15 @@ Ten projekt koncentruje się na generowaniu realistycznych i zróżnicowanych te
 •	Wywoływana jest metoda generateBiomeMapPerChunk.
 ### Then (Sprawdzenie)
 •	Test sprawdza, czy generowanie mapy biomów na chunkach nie powiodło się za pomocą EXPECT_FALSE.
+
+# Scenariusze testowe
+
+#
+| **ID**   | TC01                                                                         |
+|----------|------------------------------------------------------------------------------|
+| **Tytuł** | Zmiana parametru seed                  |
+| **Warunki początkowe** | Aplikacja jest otwarta w głównym oknie                                   |
+| **Kroki testowe** | 1. Wybierz test "Noise Mesh.<br>2. Zmień parametr seed.    |
+| **Oczekiwany rezultat** | Wyświetlony zostaje teren różniący się od początkowego                                            |
+
+#
