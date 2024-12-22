@@ -259,7 +259,45 @@ Ten projekt koncentruje się na generowaniu realistycznych i zróżnicowanych te
 |----------|------------------------------------------------------------------------------|
 | **Tytuł** | Zmiana parametru seed                  |
 | **Warunki początkowe** | Aplikacja jest otwarta w głównym oknie                                   |
-| **Kroki testowe** | 1. Wybierz test "Noise Mesh.<br>2. Zmień parametr seed.    |
-| **Oczekiwany rezultat** | Wyświetlony zostaje teren różniący się od początkowego                                            |
+| **Kroki testowe** | 1. Wybierz test "Noise Mesh".<br>2. Zmień parametr seed.    |
+| **Oczekiwany rezultat** | Wyświetlony zostaje teren różniący się od początkowego.                                            |
 
 #
+| **ID**   | TC02                                                                         |
+|----------|------------------------------------------------------------------------------|
+| **Tytuł** | Zmiana ilości oktaw generacji                 |
+| **Warunki początkowe** | Aplikacja jest otwarta w głównym oknie                                   |
+| **Kroki testowe** | 1. Wybierz test "Noise Mesh".<br>2. Zmień parametr Octaves na 1.    |
+| **Oczekiwany rezultat** | Wyświetlony zostaje teren o bardzo gładkiej powierzchni.                                            |
+
+#
+| **ID**   | TC03                                                                         |
+|----------|------------------------------------------------------------------------------|
+| **Tytuł** | Zmiana opcji traktowania wartości negatywnych                  |
+| **Warunki początkowe** | Aplikacja jest otwarta w głównym oknie                                   |
+| **Kroki testowe** | 1. Wybierz test "Noise Mesh".<br>2. Zmień parametr opcje Negatives na "FLATTEN_NEGATIVES".    |
+| **Oczekiwany rezultat** | Część wartości (ujemne wartości) zostanie wypłaszczona.                                            |
+
+#
+| **ID**   | TC04                                                                         |
+|----------|------------------------------------------------------------------------------|
+| **Tytuł** | Zaznaczenie opcji ridge                |
+| **Warunki początkowe** | Aplikacja jest otwarta w głównym oknie                                   |
+| **Kroki testowe** | 1. Wybierz test "Noise Mesh".<br>2. Zaznacz okienko ridge.    |
+| **Oczekiwany rezultat** | Wyświetlony zostaje teren wypełniony graniami górskimi.                                            |
+
+#
+| **ID**   | TC05                                                                         |
+|----------|------------------------------------------------------------------------------|
+| **Tytuł** | Wybór opcji wyspy                  |
+| **Warunki początkowe** | Aplikacja jest otwarta w głównym oknie                                   |
+| **Kroki testowe** | 1. Wybierz test "Noise Mesh".<br>2. Zmień parametr seed na wartość 2.<br>3. Zmień opcje negatives  na wartość "NOTHING".<br>4. Zaznacz opcje island.    |
+| **Oczekiwany rezultat** | Wyświetlony zostaje teren reprezentujący wyspę.                                            |
+
+#
+| **ID**   | TC06                                                                         |
+|----------|------------------------------------------------------------------------------|
+| **Tytuł** | Wybór opcji symetryczności                  |
+| **Warunki początkowe** | Aplikacja jest otwarta w głównym oknie                                   |
+| **Kroki testowe** | 1. Wybierz test "Noise Mesh".<br>2. Zaznacz okienko symmetrical.<br>3. Zaznacz okienko test symmetrical.    |
+| **Oczekiwany rezultat** | Wyświetlony zostaje teren główny i jego kopie po każdej z 4 stron, pokazując symetryczność generacji.                                            |
