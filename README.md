@@ -1,113 +1,113 @@
-##Testowanie i jakość oprogramowania\
-##Dawid Kusion\
-##Testowanie funkcji proceduralnego generowani terenu
+## Testowanie i jakość oprogramowania\
+## Dawid Kusion\
+## Testowanie funkcji proceduralnego generowani terenu
 
 # Testy jednostkowe
 ## Test 1: biomeVerifyTest
-# Given (Założenia)
+### Given (Założenia)
 •	Obiekt biome::Biome jest tworzony z określonymi parametrami: ID, nazwą, zakresami temperatury, wilgotności, kontynentalności i górzystości.
 •	Ustawiane są wartości temperatury T, wilgotności H, kontynentalności C i górzystości M.
-# When (Działania)
+### When (Działania)
 •	Wywoływana jest metoda verifyBiome z podanymi wartościami T, H, C i M.
-# Then (Sprawdzenie)
+### Then (Sprawdzenie)
 •	Test sprawdza, czy podane wartości mieszczą się w zakresie określonym dla biomu za pomocą EXPECT_TRUE.
 
 ## Test 2: setBiomesTest
-# Given (Założenia)
+### Given (Założenia)
 •	Tworzona jest pusta wektorowa lista biomów biomes.
 •	Tworzony jest obiekt BiomeGenerator.
-#When (Działania)
+### When (Działania)
 •	Wywoływana jest metoda setBiomes z pustą listą biomów.
-# Then (Sprawdzenie)
+### Then (Sprawdzenie)
 •	Test sprawdza, czy metoda zwraca false dla pustej listy biomów za pomocą EXPECT_FALSE.
 
-# Test 3: setRangesTest
-##Given (Założenia)
+## Test 3: setRangesTest
+### Given (Założenia)
 •	Tworzona jest zagnieżdżona lista zakresów ranges dla różnych parametrów świata.
 •	Tworzony jest obiekt BiomeGenerator.
 •	Ustawiane są zakresy za pomocą metody setRanges.
 •	Oczekiwana wartość poziomu dla wilgotności Humidity i wartości -1.5f wynosi -2.
-##When (Działania)
+### When (Działania)
 •	Wywoływana jest metoda determineLevel z parametrem WorldParameter::Humidity i wartością -1.5f.
-##Then (Sprawdzenie)
+### Then (Sprawdzenie)
 •	Test sprawdza, czy metoda zwraca oczekiwaną wartość poziomu za pomocą EXPECT_EQ.
 
-Test 4: adjustingVelocityTest
-Given (Założenia)
+## Test 4: adjustingVelocityTest
+### Given (Założenia)
 •	Początkowa prędkość kropli wynosi 1.0f.
 •	Grawitacja wynosi 1.0f.
 •	Różnica wysokości wynosi 0.2f.
 •	Oczekiwana nowa prędkość jest obliczana jako sqrtf((velocity * velocity) + (elevationDiff * gravity)).
 •	Tworzony jest obiekt erosion::Droplet z początkową pozycją (0.0f, 0.0f), prędkością 1.0f, wodą 1.0f i osadem 1.0f.
-When (Działania)
+### When (Działania)
 •	Wywoływana jest metoda adjustVelocity z różnicą wysokości i grawitacją.
 •	Pobierana jest nowa prędkość kropli za pomocą getVelocity.
-Then (Sprawdzenie)
+### Then (Sprawdzenie)
 •	Test sprawdza, czy nowa prędkość kropli jest zgodna z oczekiwaną wartością za pomocą EXPECT_EQ.
 
-Test 5: dropSedimentTest
-Given (Założenia)
+## Test 5: dropSedimentTest
+### Given (Założenia)
 •	Różnica wysokości wynosi 0.5f.
 •	Oczekiwana ilość osadu do zrzucenia wynosi 0.0f (domyślna wartość dla osadu, wynik min(elevationDiff, sediment)).
 •	Tworzony jest obiekt erosion::Droplet z początkową pozycją (0.0f, 0.0f), prędkością 1.0f, wodą 1.0f i osadem 1.0f.
-When (Działania)
+### When (Działania)
 •	Wywoływana jest metoda dropSediment z różnicą wysokości.
 •	Pobierana jest ilość zrzuconego osadu.
-Then (Sprawdzenie)
+### Then (Sprawdzenie)
 •	Test sprawdza, czy ilość zrzuconego osadu jest zgodna z oczekiwaną wartością za pomocą EXPECT_EQ.
 
-Test 6: evaporationTest
-Given (Założenia)
+## Test 6: evaporationTest
+### Given (Założenia)
 •	Wskaźnik parowania wynosi 0.01f.
 •	Oczekiwana ilość wody po parowaniu wynosi 0.99f.
 •	Tworzony jest obiekt erosion::Droplet z początkową pozycją (0.0f, 0.0f), prędkością 1.0f, wodą 1.0f i osadem 1.0f.
-When (Działania)
+### When (Działania)
 •	Wywoływana jest metoda evaporate z wskaźnikiem parowania.
 •	Pobierana jest nowa ilość wody za pomocą getWater.
-Then (Sprawdzenie)
+### Then (Sprawdzenie)
 •	Test sprawdza, czy ilość wody po parowaniu jest zgodna z oczekiwaną wartością za pomocą EXPECT_EQ.
 
-Test 7: mapNullPtrInitializationTest
-Given (Założenia)
+## Test 7: mapNullPtrInitializationTest
+### Given (Założenia)
 •	Oczekiwany wskaźnik mapy wynosi nullptr.
 •	Tworzony jest obiekt erosion::Erosion z wymiarami 3x3.
-When (Działania)
+### When (Działania)
 •	Pobierany jest wskaźnik mapy za pomocą getMap.
-Then (Sprawdzenie)
+### Then (Sprawdzenie)
 •	Test sprawdza, czy wskaźnik mapy jest równy nullptr za pomocą EXPECT_EQ.
 
-Test 8: mapInitializationTest
-Given (Założenia)
+## Test 8: mapInitializationTest
+### Given (Założenia)
 •	Tworzona jest mapa o rozmiarze 9 (3x3).
 •	Tworzony jest obiekt erosion::Erosion z wymiarami 3x3.
-When (Działania)
+### When (Działania)
 •	Ustawiana jest mapa za pomocą SetMap.
 •	Pobierany jest wskaźnik mapy za pomocą getMap.
-Then (Sprawdzenie)
+### Then (Sprawdzenie)
 •	Test sprawdza, czy wskaźnik mapy nie jest równy nullptr za pomocą EXPECT_TRUE.
 •	Usuwana jest mapa za pomocą delete[].
 
-Test 9: gradientTest
-Given (Założenia)
+## Test 9: gradientTest
+### Given (Założenia)
 •	Początkowa pozycja wynosi (0.5f, 0.5f).
 •	Oczekiwany gradient jest obliczany na podstawie różnic wysokości w mapie.
 •	Tworzony jest obiekt erosion::Erosion z wymiarami 2x2.
 •	Tworzona jest mapa o rozmiarze 4 z wartościami {0.40f, 0.70f, 0.20f, 0.40f}.
 •	Ustawiana jest mapa za pomocą SetMap.
-When (Działania)
+### When (Działania)
 •	Wywoływana jest metoda getGradient z początkową pozycją.
 •	Pobierany jest gradient.
-Then (Sprawdzenie)
+### Then (Sprawdzenie)
 •	Test sprawdza, czy gradient w osi x jest zgodny z oczekiwaną wartością za pomocą EXPECT_EQ.
 •	Test sprawdza, czy gradient w osi y jest zgodny z oczekiwaną wartością za pomocą EXPECT_EQ.
 
-Test 10: isOnMapTest
-Given (Założenia)
+## Test 10: isOnMapTest
+### Given (Założenia)
 •	Początkowa pozycja wynosi (3.0f, 3.0f).
 •	Tworzony jest obiekt erosion::Erosion z wymiarami 2x2.
-When (Działania)
+### When (Działania)
 •	Wywoływana jest metoda isOnMap z początkową pozycją.
-Then (Sprawdzenie)
+### Then (Sprawdzenie)
 •	Test sprawdza, czy pozycja znajduje się poza mapą za pomocą EXPECT_FALSE.
 
 Testy integracyjne
