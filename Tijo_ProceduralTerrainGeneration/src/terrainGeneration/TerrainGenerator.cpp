@@ -3,7 +3,7 @@
 #include <iostream>
 #include <math.h>
 
-#include "PoissonSampling/PoissonGenerator.h"
+#include "PoissonGenerator.h"
 
 TerrainGenerator::TerrainGenerator() : width(0), height(0), seed(0), chunkResolution(0),
 heightMap(nullptr), biomeMap(nullptr), biomeMapPerChunk(nullptr),

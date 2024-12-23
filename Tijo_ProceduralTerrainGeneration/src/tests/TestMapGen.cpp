@@ -2,9 +2,9 @@
 
 #include "utilities.h"
 
-#include "imgui/imgui.h"
-#include "glm/glm.hpp"
-#include "glm/gtc/matrix_transform.hpp"	
+#include "imgui.h"
+#include "glm.hpp"
+#include "gtc/matrix_transform.hpp"	
 
 test::TestMapGen::TestMapGen() : m_Width(20), m_Height(20), m_ChunkResX(20), m_ChunkResY(20), m_ChunkScale(0.05f), realHeight(255.0f),
 m_Stride(8), m_MeshVertices(nullptr), m_MeshIndices(nullptr), deltaTime(0.0f), lastFrame(0.0f), seeLevel(64.0f),

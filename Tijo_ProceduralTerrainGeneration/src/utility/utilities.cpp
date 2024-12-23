@@ -7,9 +7,8 @@
 #include <sstream>
 
 #include <iostream>
-#include "glm/glm.hpp"
-#include "glm/gtc/matrix_transform.hpp"
-#include "ObjLoader/tiny_obj_loader.h"
+#include "glm.hpp"
+#include "gtc/matrix_transform.hpp"
 
 namespace utilities
 {
@@ -275,95 +274,6 @@ namespace utilities
 				vertices[((y * width) + x) * stride + offset + 1] = -1.0f;
 			}
 		}
-	}
-
-	object::Object* loadObj(const std::string& dirPath, const std::string& name)
-	{
-		tinyobj::ObjReaderConfig reader_config;
-		reader_config.mtl_search_path = dirPath;
-		tinyobj::ObjReader reader;
-
-		if (!reader.ParseFromFile(dirPath + name + ".obj", reader_config))
-		{
-			if (!reader.Error().empty())
-			{
-				std::cerr << "TinyObjReader: " << reader.Error();
-			}
-			exit(1);
-		}
-		if (!reader.Warning().empty()) {
-			std::cout << "TinyObjReader: " << reader.Warning();
-		}
-
-		auto& attrib = reader.GetAttrib();
-		auto& shapes = reader.GetShapes();
-		auto& materials = reader.GetMaterials();
-
-		object::Object* obj = new object::Object(name);
-		obj->asignDirPath(dirPath);
-		
-		int size = 0;
-
-		for (auto& it : shapes)
-		{
-			size += it.mesh.indices.size();
-		}
-
-		int vertexIndex = 0;
-		object::vertex* vertices = new object::vertex[size];
-		object::faceTriangle* indices = new object::faceTriangle[size / 3];
-
-		//Loop over shapes
-		for (size_t s = 0; s < shapes.size(); s++) {
-			// Loop over faces(polygon)
-			size_t index_offset = 0;
-			for (size_t f = 0; f < shapes[s].mesh.num_face_vertices.size(); f++) {
-				size_t fv = size_t(shapes[s].mesh.num_face_vertices[f]);
-
-				// Loop over vertices in the face.
-				for (size_t v = 0; v < fv; v++) {
-					tinyobj::index_t idx = shapes[s].mesh.indices[index_offset + v];
-
-					vertices[vertexIndex] = object::vertex(attrib.vertices[3 * size_t(idx.vertex_index) + 0],
-						attrib.vertices[3 * size_t(idx.vertex_index) + 1],
-						attrib.vertices[3 * size_t(idx.vertex_index) + 2],
-						attrib.normals[3 * size_t(idx.normal_index) + 0],
-						attrib.normals[3 * size_t(idx.normal_index) + 1],
-						attrib.normals[3 * size_t(idx.normal_index) + 2],
-						attrib.texcoords[2 * size_t(idx.texcoord_index) + 0],
-						attrib.texcoords[2 * size_t(idx.texcoord_index) + 1],
-						shapes[s].mesh.material_ids[f]);
-					vertexIndex++;
-				}
-				index_offset += fv;
-			}
-		}
-
-		for (auto& it : materials) {
-			obj->addMaterial(object::material(
-				it.diffuse_texname,
-				it.ambient_texname,
-				it.specular_texname,
-				{ static_cast<float>(it.ambient[0]), static_cast<float>(it.ambient[1]), static_cast<float>(it.ambient[2]) },
-				{ static_cast<float>(it.diffuse[0]), static_cast<float>(it.diffuse[1]), static_cast<float>(it.diffuse[2]) },
-				{ static_cast<float>(it.specular[0]), static_cast<float>(it.specular[1]), static_cast<float>(it.specular[2]) },
-				static_cast<float>(it.shininess)
-			));
-		}
-
-		obj->asignVertices(vertices, size);
-		obj->asignIndices(indices);
-
-		if (obj->isSpecified())
-		{
-			std::cout << "[LOG] Object loaded successfully" << std::endl;
-		}
-		else
-		{
-			std::cout << "[ERROR] Object couldnt be loaded" << std::endl;
-		}
-
-		return obj;
 	}
 
 	bool saveToObj(const std::string& dirPath, const std::string& name, float* vertices, unsigned int* indices, unsigned int stride, unsigned int indexSize, unsigned int verticesCount, bool mtl)

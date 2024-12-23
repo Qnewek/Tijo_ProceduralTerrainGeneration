@@ -5,9 +5,9 @@
 #include "Camera.h"
 #include "utilities.h"
 
-#include "imgui/imgui.h"
-#include "glm/glm.hpp"
-#include "glm/gtc/matrix_transform.hpp"
+#include "imgui.h"
+#include "glm.hpp"
+#include "gtc/matrix_transform.hpp"
 
 namespace test
 {
@@ -203,6 +203,9 @@ namespace test
 		if (noise.getConfigRef().symmetrical) {
 			ImGui::Checkbox("Test Symmetrical", &testSymmetrical);
 		}
+		if (!noise.getConfigRef().symmetrical) {
+			testSymmetrical = false;
+		}
 
 		//Enabling erosion settings window
 		if (ImGui::Button("Erosion")) {
@@ -261,16 +264,16 @@ namespace test
 	//Probably it will be somehow changed in the future
 	void TestNoiseMesh::DrawAdjacent(Renderer& renderer, glm::mat4& model) {
 		//West
-		m_Shader->SetModel(glm::translate(model, glm::vec3(-1.0f, 0.0f, 0.0f)));
+		m_Shader->SetModel(glm::translate(model, glm::vec3(-1.0f * m_Scaling_Factor, 0.0f, 0.0f)));
 		renderer.Draw(*m_VAO, *m_IndexBuffer, *m_Shader);
 		//East
-		m_Shader->SetModel(glm::translate(model, glm::vec3(1.0f, 0.0f, 0.0f)));
+		m_Shader->SetModel(glm::translate(model, glm::vec3(1.0f * m_Scaling_Factor, 0.0f, 0.0f)));
 		renderer.Draw(*m_VAO, *m_IndexBuffer, *m_Shader);
 		//North
-		m_Shader->SetModel(glm::translate(model, glm::vec3(0.0f, 0.0f, 1.0f)));
+		m_Shader->SetModel(glm::translate(model, glm::vec3(0.0f, 0.0f, 1.0f * m_Scaling_Factor)));
 		renderer.Draw(*m_VAO, *m_IndexBuffer, *m_Shader);
 		//South
-		m_Shader->SetModel(glm::translate(model, glm::vec3(0.0f, 0.0f, -1.0f)));
+		m_Shader->SetModel(glm::translate(model, glm::vec3(0.0f, 0.0f, -1.0f * m_Scaling_Factor)));
 		renderer.Draw(*m_VAO, *m_IndexBuffer, *m_Shader);
 	}
 
@@ -363,6 +366,12 @@ namespace test
 
 		m_erosionBuffer->UpdateData(erosionVertices, (height * width) * stride * sizeof(float));
 		erosionDraw = true;
+
+		if (m_Scaling_Factor != 1.0f) {
+			for (int i = 0; i < (erosion.getConfigRef().dropletLifetime + 1) * erosion.getDropletCountRef() * 3; i++) {
+				traceVertices[i] *= m_Scaling_Factor;
+			}
+		}
 	}
 
 	//Function drawing tracks of droplets on the eroded terrain mesh
@@ -378,7 +387,7 @@ namespace test
 			GLCALL(glEnableVertexAttribArray(0));
 			GLCALL(glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0));
 
-			GLCALL(glPointSize(2.0f));
+			GLCALL(glPointSize(2.0f * m_Scaling_Factor));
 			GLCALL(glDrawArrays(GL_POINTS, 0, (erosion.getConfigRef().dropletLifetime + 1) * erosion.getDropletCountRef()));
 		}
 	}

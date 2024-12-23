@@ -9,7 +9,6 @@
 #include "LightSource.h"
 #include "Noise.h"
 #include "TerrainGenerator.h"
-#include "Object.h"
 
 namespace test {
 

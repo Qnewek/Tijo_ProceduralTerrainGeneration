@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Camera.h"
-#include "glm/glm.hpp"
+#include "glm.hpp"
 
 class Player
 {

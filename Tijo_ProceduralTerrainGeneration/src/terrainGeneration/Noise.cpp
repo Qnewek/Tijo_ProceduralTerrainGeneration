@@ -1,12 +1,12 @@
 #include "Noise.h"
-#include "glm/glm.hpp"
+#include "glm.hpp"
 #include <cmath>
 #include <iostream>
 
 #include <algorithm>
 #include <random>
 
-#include "Simplex/SimplexNoise.h"
+#include "SimplexNoise.h"
 
 #define PI 3.14159265
 

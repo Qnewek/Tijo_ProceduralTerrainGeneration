@@ -85,7 +85,7 @@
       <PreprocessorDefinitions>GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>src;src\opengl;src\vendor;src\utility;src\utility\Objects;src\terrainGeneration;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;src\tests;src\opengl;src\vendor;src\vendor\Splines;src\vendor\Simplex;src\vendor\PoissonSampling;src\vendor\imgui;src\vendor\stb_image;src\utility;src\utility\Objects;src\terrainGeneration;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;src\vendor\glm</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -103,7 +103,7 @@
       <PreprocessorDefinitions>GLEW_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>src;src\opengl;src\vendor;src\utility;src\utility\Objects;src\terrainGeneration;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;src\tests;src\opengl;src\vendor;src\vendor\Splines;src\vendor\Simplex;src\vendor\PoissonSampling;src\vendor\imgui;src\vendor\stb_image;src\utility;src\utility\Objects;src\terrainGeneration;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;src\vendor\glm</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -322,12 +322,10 @@
     <ClCompile Include="src\terrainGeneration\Noise.cpp" />
     <ClCompile Include="src\terrainGeneration\TerrainGenerator.cpp" />
     <ClCompile Include="src\tests\Test.cpp" />
-    <ClCompile Include="src\tests\TestImage.cpp" />
     <ClCompile Include="src\tests\TestMapGen.cpp" />
     <ClCompile Include="src\tests\TestNoiseMesh.cpp" />
     <ClCompile Include="src\utility\Camera.cpp" />
     <ClCompile Include="src\utility\LightSource.cpp" />
-    <ClCompile Include="src\utility\Objects\Object.cpp" />
     <ClCompile Include="src\utility\Player.cpp" />
     <ClCompile Include="src\utility\utilities.cpp" />
     <ClCompile Include="src\vendor\glm\detail\glm.cpp" />
@@ -353,12 +351,10 @@
     <ClInclude Include="src\terrainGeneration\Noise.h" />
     <ClInclude Include="src\terrainGeneration\TerrainGenerator.h" />
     <ClInclude Include="src\tests\Test.h" />
-    <ClInclude Include="src\tests\TestImage.h" />
     <ClInclude Include="src\tests\TestMapGen.h" />
     <ClInclude Include="src\tests\TestNoiseMesh.h" />
     <ClInclude Include="src\utility\Camera.h" />
     <ClInclude Include="src\utility\LightSource.h" />
-    <ClInclude Include="src\utility\Objects\Object.h" />
     <ClInclude Include="src\utility\Player.h" />
     <ClInclude Include="src\utility\utilities.h" />
     <ClInclude Include="src\vendor\glm\common.hpp" />
@@ -656,7 +652,6 @@
     <ClInclude Include="src\vendor\imgui\stb_rect_pack.h" />
     <ClInclude Include="src\vendor\imgui\stb_textedit.h" />
     <ClInclude Include="src\vendor\imgui\stb_truetype.h" />
-    <ClInclude Include="src\vendor\ObjLoader\tiny_obj_loader.h" />
     <ClInclude Include="src\vendor\PoissonSampling\PoissonGenerator.h" />
     <ClInclude Include="src\vendor\Simplex\SimplexNoise.h" />
     <ClInclude Include="src\vendor\Splines\spline.h" />

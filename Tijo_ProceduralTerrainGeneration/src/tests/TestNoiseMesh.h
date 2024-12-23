@@ -8,7 +8,7 @@
 #include "Camera.h"
 #include "LightSource.h"
 #include "Noise.h"
-#include "glm/glm.hpp"
+#include "glm.hpp"
 #include "Erosion.h"
 #include "Player.h"
 

@@ -4,28 +4,18 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <sstream>
 #include <chrono>
 
 #include "Renderer.h"
-#include "VertexBuffer.h"
-#include "IndexBuffer.h"
-#include "VertexArray.h"
-#include "Shader.h"
 #include "VertexBufferLayout.h"
-#include "Texture.h"
 
-#include "glm/glm.hpp"
-#include "glm/gtc/matrix_transform.hpp"
+#include "glm.hpp"
+#include "imgui.h"
+#include "imgui_impl_glfw_gl3.h"
 
-#include "imgui/imgui.h"
-#include "imgui/imgui_impl_glfw_gl3.h"
+#include "TestNoiseMesh.h"
+#include "TestMapGen.h"
 
-#include "tests/TestNoiseMesh.h"
-#include "tests/TestImage.h"
-#include "tests/TestMapGen.h"
-
-#include "Noise.h"
 #include "utilities.h"
 
 int main(void)
@@ -69,7 +59,6 @@ int main(void)
 		currentTest = testMenu;
 
 		testMenu->RegisterTest<test::TestNoiseMesh>("Noise Mesh");
-		testMenu->RegisterTest<test::TestImage>("Test image");
 		testMenu->RegisterTest<test::TestMapGen>("Map generation");
 
         while (!glfwWindowShouldClose(window))

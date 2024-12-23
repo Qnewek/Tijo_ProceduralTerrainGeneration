@@ -4,7 +4,7 @@
 #include "VertexBufferLayout.h"
 #include "Renderer.h"
 
-#include "glm/glm.hpp"
+#include "glm.hpp"
 
 class LightSource
 {
