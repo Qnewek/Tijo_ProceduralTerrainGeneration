@@ -17,7 +17,8 @@ Ten projekt koncentruje się na generowaniu realistycznych i zróżnicowanych te
 •	OpenGL: Używany do renderowania grafiki 3D, w tym generowanych terenów.\
 •	Dear ImGui: Biblioteka do tworzenia interfejsu użytkownika.
 
-Uruchomienie testów i projektu w cmd: > cd /d build && PorceduralTerrainGenTests.exe && start Tijo_ProceduralTerrainGeneration
+Uruchomienie testów i projektu w cmd:
+> cd /d build && PorceduralTerrainGenTests.exe && start Tijo_ProceduralTerrainGeneration
 
 # Testy jednostkowe
 #### Folder: PorceduralTerrainGenTests
