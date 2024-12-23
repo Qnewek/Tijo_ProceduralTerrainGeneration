@@ -4,7 +4,7 @@
 
 ## Opis projektu:
 Ten projekt koncentruje się na generowaniu realistycznych i zróżnicowanych terenów za pomocą technik generowania proceduralnego. Głównym komponentem jest klasa TerrainGenerator, która wykorzystuje różne funkcje szumu i konfiguracje do tworzenia map wysokości, map biomów i rozmieszczenia roślinności.
-### Kluczowe Funkcje
+### Aplikacja posiada między innymi funkcje:
 •	Generowanie Mapy Wysokości: Używa funkcji szumu i funkcji sklejanych do uzyskania oczekiwanej rzeźby terenu.\
 •	Generowanie Mapy Biomów: Przypisuje różne biomy (np. równiny, pustynie, góry) na podstawie cech terenu.\
 •	Rozmieszczenie Roślinności: Umieszcza roślinność, zgodnie z cechami biomów i terenu.\
@@ -16,6 +16,8 @@ Ten projekt koncentruje się na generowaniu realistycznych i zróżnicowanych te
 •	GLFW: Używany do tworzenia okien i obsługi wejścia użytkownika.\
 •	OpenGL: Używany do renderowania grafiki 3D, w tym generowanych terenów.\
 •	Dear ImGui: Biblioteka do tworzenia interfejsu użytkownika.
+
+Uruchomienie testów i projektu w cmd: > cd /d build && PorceduralTerrainGenTests.exe && start Tijo_ProceduralTerrainGeneration
 
 # Testy jednostkowe
 #### Folder: PorceduralTerrainGenTests
