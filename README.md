@@ -129,7 +129,7 @@ Uruchomienie testów i projektu w cmd: `cd /d build && PorceduralTerrainGenTests
 •	Test sprawdza, czy pozycja znajduje się poza mapą za pomocą EXPECT_FALSE.
 
 # Testy integracyjne
-#### [Plik numer 1](PorceduralTerrainGenTests/erosionIntegrationTests), [Plik numer 2](PorceduralTerrainGenTests/terrainGeneratorIntegrationTests.cpp) 
+#### [Plik numer 1](PorceduralTerrainGenTests/erosionIntegrationTests.cpp), [Plik numer 2](PorceduralTerrainGenTests/terrainGeneratorIntegrationTests.cpp) 
 ## Test 1: positionTest
 ### Given (Założenia)
 •	Obiekt erosion::Erosion jest tworzony z wymiarami 3x3.\
