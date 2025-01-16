@@ -255,6 +255,9 @@ Uruchomienie testów i projektu w cmd: `cd /d build && PorceduralTerrainGenTests
 ### Then (Sprawdzenie)
 •	Test sprawdza, czy generowanie mapy biomów na chunkach nie powiodło się za pomocą EXPECT_FALSE.
 
+# Dokumentacja
+## [link](TIJO-Dokumentacja.pdf)
+
 # Scenariusze testowe
 
 #
