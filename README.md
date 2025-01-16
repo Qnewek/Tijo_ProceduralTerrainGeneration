@@ -20,8 +20,7 @@ Ten projekt koncentruje się na generowaniu realistycznych i zróżnicowanych te
 Uruchomienie testów i projektu w cmd: `cd /d build && PorceduralTerrainGenTests.exe && start Tijo_ProceduralTerrainGeneration`
 
 # Testy jednostkowe
-#### Folder: PorceduralTerrainGenTests
-#### Pliki: erosionUnitTests.cpp, terrainGenerationUnitTests.cpp
+#### [Pliki zawierający testy](PorceduralTerrainGenTests/erosionUnitTests.cpp), [Plik zawierający testy 2](PorceduralTerrainGenTests/terrainGenerationUnitTests.cpp)
 ## Test 1: biomeVerifyTest
 ### Given (Założenia)
 •	Obiekt biome::Biome jest tworzony z określonymi parametrami: ID, nazwą, zakresami temperatury, wilgotności, kontynentalności i górzystości.\
@@ -130,8 +129,7 @@ Uruchomienie testów i projektu w cmd: `cd /d build && PorceduralTerrainGenTests
 •	Test sprawdza, czy pozycja znajduje się poza mapą za pomocą EXPECT_FALSE.
 
 # Testy integracyjne
-#### Folder: PorceduralTerrainGenTests
-#### Pliki: erosionIntegrationTests.cpp, terrainGeneratorIntegrationTests.cpp
+#### [Plik numer 1](PorceduralTerrainGenTests/erosionIntegrationTests), [Plik numer 2](PorceduralTerrainGenTests/terrainGeneratorIntegrationTests.cpp) 
 ## Test 1: positionTest
 ### Given (Założenia)
 •	Obiekt erosion::Erosion jest tworzony z wymiarami 3x3.\
